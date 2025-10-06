@@ -1,8 +1,11 @@
 """
 env_config.py
 Environment Configuration Manager für Mini Postman
-
-Lädt Umgebungsvariablen aus .env Datei und stellt sie sicher zur Verfügung.
+🔄 Python lädt die env_config.py
+🔍 Sie sucht nach einer .env Datei
+📥 Sie lädt alle Umgebungsvariablen
+⚙️ Alle Config-Klassen werden initialisiert
+✅ Fertig! - Werte sind verfügbar
 """
 
 import os

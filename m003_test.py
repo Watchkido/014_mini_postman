@@ -3,7 +3,11 @@ exceptions.py
 Benutzerdefinierte Ausnahmen für das Projekt.
 Hier werden eigene Exception-Klassen definiert.
 """
+from env_config import APIConfig, DatabaseConfig
 
+# Die Klasse lädt automatisch aus .env
+api_key = APIConfig.LIBRETRANSLATE_API_KEY  # "abc123xyz789_ihr_echter_key"
+db_pass = DatabaseConfig.PASSWORD  
 class CustomError(Exception):
     pass
 

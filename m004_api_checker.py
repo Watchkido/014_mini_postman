@@ -3,6 +3,12 @@ import time
 import json
 from datetime import datetime
 import argparse
+from env_config import APIConfig, DatabaseConfig
+
+# Die Klasse lädt automatisch aus .env
+api_key = APIConfig.LIBRETRANSLATE_API_KEY  # "abc123xyz789_ihr_echter_key"
+db_pass = DatabaseConfig.PASSWORD  
+
 
 class APIChecker:
     def __init__(self, endpoints):

@@ -9,6 +9,13 @@ import sys
 import psutil
 import csv
 import pandas as pd
+from env_config import APIConfig, DatabaseConfig
+
+# Die Klasse lädt automatisch aus .env
+api_key = APIConfig.LIBRETRANSLATE_API_KEY  # "abc123xyz789_ihr_echter_key"
+db_pass = DatabaseConfig.PASSWORD  
+
+
 
 st.title("🧰 Mini Postman (Python Edition)")
 
