@@ -29,4 +29,9 @@ URL_PRESETS = {
     'Cat Facts API': 'https://catfact.ninja/fact',
     'Dog API': 'https://dog.ceo/api/breeds/image/random',
     'Benutzerdefiniert': ''
+
+https://www.dataaccess.com/webservicesserver/NumberConversion.wso
+POST /webservicesserver/NumberConversion.wso
+
+
 }

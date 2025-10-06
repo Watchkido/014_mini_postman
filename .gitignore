@@ -1,0 +1,349 @@
+# =============================================================================
+# PYTHON & VIRTUAL ENVIRONMENT
+# =============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# =============================================================================
+# SECURITY & CREDENTIALS
+# =============================================================================
+
+# Environment variables (KRITISCH!)
+.env
+.env.local
+.env.production
+.env.staging
+.env.development
+
+# API Keys und Secrets
+secrets.json
+credentials.json
+api_keys.txt
+*.key
+*.pem
+*.p12
+*.pfx
+
+# SSH Keys
+id_rsa
+id_rsa.pub
+known_hosts
+
+# GPG Keys
+*.gpg
+*.asc
+
+# =============================================================================
+# LOGS & TEMPORARY FILES
+# =============================================================================
+
+# Log files
+*.log
+logs/
+log/
+*.log.*
+
+# Health Check Logs (diese sind OK, aber große können ignoriert werden)
+m005_*.log
+health_check_*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# =============================================================================
+# DATABASE & DATA
+# =============================================================================
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# Database dumps
+*.sql
+*.dump
+
+# CSV/Excel files mit sensitiven Daten
+sensitive_*.csv
+private_*.xlsx
+confidential_*.*
+
+# =============================================================================
+# IDE & EDITOR SPECIFIC
+# =============================================================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# =============================================================================
+# WEB & STREAMLIT
+# =============================================================================
+
+# Streamlit
+.streamlit/
+
+# Node.js (falls Frontend-Komponenten)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =============================================================================
+# DOCKER & CONTAINERIZATION
+# =============================================================================
+
+# Docker
+Dockerfile.local
+docker-compose.override.yml
+.dockerignore
+
+# Kubernetes
+*.kubeconfig
+
+# =============================================================================
+# CLOUD & DEPLOYMENT
+# =============================================================================
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# AWS
+.aws/
+*.pem
+
+# Google Cloud
+.gcloud/
+service-account.json
+
+# Azure
+.azure/
+
+# Heroku
+.env.heroku
+
+# =============================================================================
+# DOCUMENTATION & MEDIA
+# =============================================================================
+
+# Generated documentation
+docs/_build/
+site/
+
+# Large media files (videos, große Bilder)
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.iso
+
+# Screenshots mit sensitiven Daten
+screenshot_*.png
+screen_*.jpg
+
+# =============================================================================
+# BACKUP & ARCHIVE FILES
+# =============================================================================
+
+# Backup files
+*.bak
+*.backup
+*.old
+*_backup.*
+*_old.*
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# =============================================================================
+# DEVELOPMENT & TESTING
+# =============================================================================
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# pytest
+.pytest_cache/
+.coverage
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Profiling data
+.prof
+
+# =============================================================================
+# API TESTING SPECIFIC
+# =============================================================================
+
+# Postman/Insomnia exports mit sensitiven Daten
+*_postman_collection.json
+*_insomnia_workspace.json
+
+# API Response caches
+api_cache/
+response_cache/
+
+# Test data mit echten APIs
+test_data_prod/
+prod_responses/
+
+# SSL Certificates für Testing
+*.crt
+*.cert
+*.ca-bundle
+
+# =============================================================================
+# MONITORING & ANALYTICS
+# =============================================================================
+
+# Performance monitoring data
+perf_data/
+metrics/
+monitoring/
+
+# Error tracking
+sentry.dsn
+rollbar.token
+
+# =============================================================================
+# CUSTOM PROJECT SPECIFIC
+# =============================================================================
+
+# Eigene temporäre Ordner
+temp/
+tmp/
+scratch/
+playground/
+
+# Lokale Konfigurationsdateien
+config.local.py
+settings.local.py
+local_settings.py
+
+# Development-only Scripts
+dev_*.py
+debug_*.py
+test_local_*.py
+
+# =============================================================================
+# GENERATED FILES
+# =============================================================================
+
+# Reports
+reports/
+*.report
+*.html
+
+# Exports
+exports/
+*.export
+
+# Generated configs
+generated_*
+auto_*

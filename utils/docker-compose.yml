@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  mini-postman:
+    build: .
+    container_name: mini-postman-app
+    ports:
+      - "8501:8501"
+    environment:
+      - ENVIRONMENT=production
+      - DEBUG=false
+      - LIBRETRANSLATE_BASE_URL=http://libretranslate:5000
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./config:/app/config:ro
+    depends_on:
+      - libretranslate
+    restart: unless-stopped
+    networks:
+      - mini-postman-network
+
+  libretranslate:
+    image: libretranslate/libretranslate:latest
+    container_name: mini-postman-translate
+    ports:
+      - "5000:5000"
+    environment:
+      - LT_LOAD_ONLY=en,de
+      - LT_UPDATE_MODELS=true
+    volumes:
+      - lt-data:/app/db
+    restart: unless-stopped
+    networks:
+      - mini-postman-network
+
+  # Optional: Database for storing results
+  postgres:
+    image: postgres:15-alpine
+    container_name: mini-postman-db
+    environment:
+      - POSTGRES_DB=mini_postman
+      - POSTGRES_USER=minipostman
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-minipostman123}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      - mini-postman-network
+
+  # Optional: Redis for caching
+  redis:
+    image: redis:7-alpine
+    container_name: mini-postman-cache
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    networks:
+      - mini-postman-network
+
+volumes:
+  lt-data:
+  postgres-data:
+  redis-data:
+
+networks:
+  mini-postman-network:
+    driver: bridge

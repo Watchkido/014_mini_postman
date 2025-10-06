@@ -7,6 +7,8 @@ import os
 import subprocess
 import sys
 import psutil
+import csv
+import pandas as pd
 
 st.title("🧰 Mini Postman (Python Edition)")
 
@@ -40,8 +42,55 @@ if st.button("Send Request"):
 
     response = requests.request(method, url, headers=headers, params=params, json=json_data, data=data)
 
+    # HTTP Status Codes aus CSV-Datei laden
+    @st.cache_data
+    def load_status_codes():
+        """Lädt HTTP Status Codes aus CSV-Datei"""
+        status_codes = {}
+        csv_path = os.path.join(os.path.dirname(__file__), 'http_status_codes.csv')
+        
+        try:
+            with open(csv_path, 'r', encoding='utf-8') as file:
+                reader = csv.DictReader(file)
+                for row in reader:
+                    status_codes[int(row['number'])] = row['text']
+        except FileNotFoundError:
+            st.warning("⚠️ http_status_codes.csv nicht gefunden - verwende Fallback-Codes")
+            # Fallback für wichtigste Status Codes
+            status_codes = {
+                200: "Success - OK",
+                201: "Success - Created", 
+                400: "Client Error - Bad Request",
+                401: "Client Error - Unauthorized",
+                403: "Client Error - Forbidden",
+                404: "Client Error - Not Found",
+                500: "Server Error - Internal Server Error",
+                502: "Server Error - Bad Gateway",
+                503: "Server Error - Service Unavailable"
+            }
+        except Exception as e:
+            st.error(f"❌ Fehler beim Laden der Status Codes: {e}")
+            status_codes = {200: "Success - OK", 404: "Client Error - Not Found", 500: "Server Error - Internal Server Error"}
+        
+        return status_codes
+
+    status_codes = load_status_codes()
+    
     st.subheader("Status Code")
-    st.write(response.status_code)
+    status_code = response.status_code
+    status_explanation = status_codes.get(status_code, f"Unbekannter Status Code ({status_code})")
+    
+    # Status Code mit Farbkodierung anzeigen
+    if 200 <= status_code < 300:
+        st.success(f"✅ {status_code} - {status_explanation}")
+    elif 300 <= status_code < 400:
+        st.info(f"🔄 {status_code} - {status_explanation}")
+    elif 400 <= status_code < 500:
+        st.warning(f"⚠️ {status_code} - {status_explanation}")
+    elif status_code >= 500:
+        st.error(f"❌ {status_code} - {status_explanation}")
+    else:
+        st.info(f"ℹ️ {status_code} - {status_explanation}")
 
     st.subheader("Headers")
     st.json(dict(response.headers))
