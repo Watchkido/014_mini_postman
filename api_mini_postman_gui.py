@@ -5,6 +5,8 @@ import json
 from config import URL_PRESETS
 import os
 import subprocess
+import sys
+import psutil
 
 st.title("🧰 Mini Postman (Python Edition)")
 
@@ -149,3 +151,24 @@ if st.button("Datei ausführen"):
 # streamlit run mini_postman_gui.py
 # streamlit run "e:\dev\projekt_python_venv\014_Mini_Postman\src\mini_postman\mini_postman_gui.py"
 # Local URL: http://localhost:8501
+
+if __name__ == "__main__":
+       # Überprüfen, ob Streamlit bereits läuft
+    streamlit_running = False
+    for process in psutil.process_iter(['name', 'cmdline']):
+        if "streamlit" in process.info['name'] or (process.info['cmdline'] and "streamlit" in " ".join(process.info['cmdline'])):
+            print("Streamlit läuft bereits. Kein erneuter Start erforderlich.")
+            streamlit_running = True
+            break  # Schleife beenden, da Streamlit gefunden wurde
+
+    if not streamlit_running:
+        # Ermitteln des absoluten Pfads zur aktuellen Datei
+        script_path = os.path.abspath(__file__)
+
+        try:
+            # Streamlit mit dem aktuellen Skript starten
+            subprocess.run([sys.executable, "-m", "streamlit", "run", script_path], check=True)
+        except subprocess.CalledProcessError as e:
+            print(f"Fehler beim Starten von Streamlit: {e}")
+        except KeyboardInterrupt:
+            print("Streamlit wurde manuell beendet.")
