@@ -1,0 +1,2 @@
+# Diese Datei stellt sicher, dass der pdf/ Ordner in Git erhalten bleibt
+# Alle anderen Dateien in diesem Ordner werden durch .gitignore ignoriert

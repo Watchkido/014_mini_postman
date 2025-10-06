@@ -347,3 +347,15 @@ exports/
 # Generated configs
 generated_*
 auto_*
+
+# =============================================================================
+# PROJECT CONTENT FOLDERS (show folders but ignore content)
+# =============================================================================
+
+# PDF Dokumente - Ordner bleibt sichtbar, Inhalt wird ignoriert
+pdf/*
+!pdf/.gitkeep
+
+# Notebooks - Ordner bleibt sichtbar, Inhalt wird ignoriert  
+notebooks/*
+!notebooks/.gitkeep
