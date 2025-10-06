@@ -357,5 +357,5 @@ pdf/*
 !pdf/.gitkeep
 
 # Notebooks - Ordner bleibt sichtbar, Inhalt wird ignoriert  
-notebooks/*
-!notebooks/.gitkeep
+notebook/*
+!notebook/.gitkeep
