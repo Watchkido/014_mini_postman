@@ -67,7 +67,7 @@ class APIConfig:
     
     # LibreTranslate
     LIBRETRANSLATE_API_KEY = EnvConfig.get('LIBRETRANSLATE_API_KEY', '')
-    LIBRETRANSLATE_BASE_URL = EnvConfig.get('LIBRETRANSLATE_BASE_URL', 'http://192.168.178.185:5000')
+    LIBRETRANSLATE_BASE_URL = EnvConfig.get('LIBRETRANSLATE_BASE_URL', os.getenv('LIBRETRANSLATE_BASE_URL', 'http://192.168.178.185:5000'))
     
     # OpenAI (optional)
     OPENAI_API_KEY = EnvConfig.get('OPENAI_API_KEY', '')
@@ -78,6 +78,13 @@ class APIConfig:
     # Azure (optional)
     AZURE_TRANSLATOR_KEY = EnvConfig.get('AZURE_TRANSLATOR_KEY', '')
     AZURE_TRANSLATOR_REGION = EnvConfig.get('AZURE_TRANSLATOR_REGION', '')
+    
+    # LinkedIn
+    LINKEDIN_ACCESS_TOKEN = EnvConfig.get('LINKEDIN_ACCESS_TOKEN', '')
+    LINKEDIN_CLIENT_ID = EnvConfig.get('LINKEDIN_CLIENT_ID', '')
+    LINKEDIN_CLIENT_SECRET = EnvConfig.get('LINKEDIN_CLIENT_SECRET', '')
+    LINKEDIN_API_VERSION = EnvConfig.get('LINKEDIN_API_VERSION', '202412')
+    LINKEDIN_DEFAULT_TIMEOUT = EnvConfig.get_int('LINKEDIN_DEFAULT_TIMEOUT', 30)
     
     # Test APIs
     JSONPLACEHOLDER_BASE_URL = EnvConfig.get('JSONPLACEHOLDER_BASE_URL', 'https://jsonplaceholder.typicode.com')

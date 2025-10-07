@@ -15,6 +15,10 @@ import sys
 from datetime import datetime
 from env_config import APIConfig
 
+# API URLs
+url = "https://jsonplaceholder.typicode.com/users"
+url_post = "https://jsonplaceholder.typicode.com/posts"
+
 def check_unicode_support():
     """Prüft, ob die Konsole Unicode-Zeichen unterstützt"""
     try:
@@ -75,8 +79,6 @@ def format_user_data(user, unicode_support=True):
 
 def fetch_users():
     """Holt alle Benutzer von der JSONPlaceholder API"""
-    url = "https://jsonplaceholder.typicode.com/users"
-    
     try:
         print(f"🔍 Lade Benutzerdaten von: {url}")
         response = requests.get(url, timeout=10)
@@ -91,6 +93,113 @@ def fetch_users():
     except requests.exceptions.RequestException as e:
         print(f"❌ Fehler beim Laden der Daten: {e}")
         return None
+
+def fetch_posts():
+    """Holt alle Posts von der JSONPlaceholder API"""
+    try:
+        print(f"🔍 Lade Posts von: {url_post}")
+        response = requests.get(url_post, timeout=10)
+        response.raise_for_status()
+        
+        posts = response.json()
+        print(f"✅ Erfolgreich {len(posts)} Posts geladen!")
+        print()
+        
+        return posts
+        
+    except requests.exceptions.RequestException as e:
+        print(f"❌ Fehler beim Laden der Posts: {e}")
+        return None
+
+def format_post_data(post, unicode_support=True):
+    """Formatiert Post-Daten in einer schönen, lesbaren Form"""
+    
+    # Header für den Post
+    print_separator(unicode_support)
+    if unicode_support:
+        print(f"📝 POST #{post['id']}: {post['title'][:50]}{'...' if len(post['title']) > 50 else ''}")
+    else:
+        print(f"POST #{post['id']}: {post['title'][:50]}{'...' if len(post['title']) > 50 else ''}")
+    print_separator(unicode_support)
+    
+    # Post-Daten
+    print(f"👤 Benutzer-ID : {post['userId']}")
+    print(f"📋 Titel      : {post['title']}")
+    print(f"📄 Inhalt     : {post['body']}")
+    print()
+
+def create_post():
+    """Erstellt einen neuen Post über die JSONPlaceholder API"""
+    
+    print("📝 NEUEN POST ERSTELLEN:")
+    print_separator(True, 40)
+    
+    # Eingaben vom Benutzer
+    try:
+        user_id = int(input("👤 Benutzer-ID (1-10): "))
+        if user_id < 1 or user_id > 10:
+            print("❌ Benutzer-ID muss zwischen 1 und 10 liegen!")
+            return None
+            
+        title = input("📋 Titel des Posts: ").strip()
+        if not title:
+            print("❌ Titel darf nicht leer sein!")
+            return None
+            
+        body = input("📄 Inhalt des Posts: ").strip()
+        if not body:
+            print("❌ Inhalt darf nicht leer sein!")
+            return None
+            
+    except ValueError:
+        print("❌ Ungültige Benutzer-ID!")
+        return None
+    
+    # Post-Daten vorbereiten
+    post_data = {
+        'title': title,
+        'body': body,
+        'userId': user_id
+    }
+    
+    try:
+        print(f"\n🚀 Sende POST-Request an: {url_post}")
+        response = requests.post(url_post, json=post_data, timeout=10)
+        response.raise_for_status()
+        
+        created_post = response.json()
+        
+        print("✅ Post erfolgreich erstellt!")
+        print_separator(True)
+        print(f"📝 POST ID: {created_post['id']}")
+        print(f"👤 Benutzer-ID: {created_post['userId']}")
+        print(f"📋 Titel: {created_post['title']}")
+        print(f"📄 Inhalt: {created_post['body']}")
+        print_separator(True)
+        
+        return created_post
+        
+    except requests.exceptions.RequestException as e:
+        print(f"❌ Fehler beim Erstellen des Posts: {e}")
+        return None
+
+def create_posts_dataframe(posts):
+    """Erstellt ein pandas DataFrame mit den wichtigsten Post-Daten"""
+    
+    data = []
+    for post in posts:
+        # Kürze Titel und Inhalt für bessere Darstellung
+        title_short = post['title'][:30] + '...' if len(post['title']) > 30 else post['title']
+        body_short = post['body'][:40] + '...' if len(post['body']) > 40 else post['body']
+        
+        data.append({
+            'ID': post['id'],
+            'Benutzer-ID': post['userId'],
+            'Titel': title_short,
+            'Inhalt': body_short
+        })
+    
+    return pd.DataFrame(data)
 
 def create_users_dataframe(users):
     """Erstellt ein pandas DataFrame mit den wichtigsten Benutzerdaten"""
@@ -133,19 +242,31 @@ def main():
     
     # Menü anzeigen
     while True:
-        print("📋 OPTIONEN:")
+        print("📋 HAUPTMENÜ:")
+        print("=" * 50)
+        print("👤 BENUTZER:")
         print("1. Alle Benutzer in Tabellenform anzeigen")
         print("2. Einzelnen Benutzer detailliert anzeigen")
         print("3. Alle Benutzer detailliert anzeigen")
-        print("4. JSON-Rohdaten anzeigen")
-        print("5. Beenden")
         print()
+        print("📝 POSTS:")
+        print("4. Alle Posts in Tabellenform anzeigen")
+        print("5. Einzelnen Post detailliert anzeigen")
+        print("6. Alle Posts detailliert anzeigen")
+        print("7. Neuen Post erstellen")
+        print()
+        print("📄 DATEN:")
+        print("8. JSON-Rohdaten (Benutzer) anzeigen")
+        print("9. JSON-Rohdaten (Posts) anzeigen")
+        print()
+        print("0. Beenden")
+        print("=" * 50)
         
-        choice = input("Wählen Sie eine Option (1-5): ").strip()
+        choice = input("Wählen Sie eine Option (0-9): ").strip()
         print()
         
         if choice == "1":
-            # Tabelle anzeigen
+            # Benutzer-Tabelle anzeigen
             df = create_users_dataframe(users)
             print("📊 BENUTZER-ÜBERSICHT:")
             print(df.to_string(index=False))
@@ -177,12 +298,66 @@ def main():
                 format_user_data(user, unicode_support)
             
         elif choice == "4":
-            # JSON-Rohdaten
-            print("📄 JSON-ROHDATEN:")
+            # Posts-Tabelle anzeigen
+            posts = fetch_posts()
+            if posts:
+                df = create_posts_dataframe(posts)
+                print("📊 POSTS-ÜBERSICHT:")
+                print(df.to_string(index=False))
+                print()
+            
+        elif choice == "5":
+            # Einzelnen Post anzeigen
+            posts = fetch_posts()
+            if posts:
+                print("Verfügbare Posts (erste 10):")
+                for post in posts[:10]:
+                    print(f"  {post['id']}: {post['title'][:40]}{'...' if len(post['title']) > 40 else ''}")
+                print()
+                
+                try:
+                    post_id = int(input("Post-ID eingeben: "))
+                    post = next((p for p in posts if p['id'] == post_id), None)
+                    
+                    if post:
+                        format_post_data(post, unicode_support)
+                    else:
+                        print("❌ Post nicht gefunden!")
+                        
+                except ValueError:
+                    print("❌ Ungültige ID!")
+                print()
+            
+        elif choice == "6":
+            # Alle Posts detailliert (erste 10)
+            posts = fetch_posts()
+            if posts:
+                print("📝 Zeige die ersten 10 Posts:")
+                for post in posts[:10]:
+                    format_post_data(post, unicode_support)
+            
+        elif choice == "7":
+            # Neuen Post erstellen
+            created_post = create_post()
+            if created_post:
+                print("✨ Der erstellte Post:")
+                format_post_data(created_post, unicode_support)
+            
+        elif choice == "8":
+            # JSON-Rohdaten Benutzer
+            print("📄 JSON-ROHDATEN (BENUTZER):")
             print(json.dumps(users, indent=2, ensure_ascii=False))
             print()
             
-        elif choice == "5":
+        elif choice == "9":
+            # JSON-Rohdaten Posts
+            posts = fetch_posts()
+            if posts:
+                print("📄 JSON-ROHDATEN (POSTS - erste 5):")
+                print(json.dumps(posts[:5], indent=2, ensure_ascii=False))
+                print()
+            
+        elif choice == "0":
             print("👋 Programm beendet. Auf Wiedersehen!")
             break
             
