@@ -1,0 +1,318 @@
+/* Wetter-Globus CSS - Live Weltweites Wetter */
+/* Autor: Frank Albrecht | Datum: 9. Oktober 2025 */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1a2e;
+    color: #fff;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.globe-container {
+    flex: 3;
+    position: relative;
+}
+
+#globe {
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+}
+
+#globe:active {
+    cursor: grabbing;
+}
+
+.info-panel {
+    flex: 1;
+    padding: 15px;
+    background-color: #16213e;
+    overflow-y: auto;
+    min-width: 300px;
+    max-height: 100vh;
+}
+
+.info-panel h2 {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+}
+
+.city-list {
+    margin-top: 20px;
+}
+
+.city-item {
+    margin: 4px 2px;
+    padding: 6px 8px;
+    background-color: #0e4c92;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    width: 48%;
+    display: inline-block;
+    text-align: left;
+    font-size: 10px;
+    line-height: 1.1;
+    transition: background-color 0.3s;
+    vertical-align: top;
+}
+
+.city-item:hover {
+    background-color: #1a5a9e;
+}
+
+/* Modal-Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #16213e;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 80%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close-btn {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Wetter-Icon Styles */
+.weather-icon {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Ladebalken-Styles */
+.loading-container {
+    text-align: center;
+    padding: 20px;
+    color: #90EE90;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #0f3460;
+    border-radius: 10px;
+    margin: 10px 0;
+    overflow: hidden;
+    border: 1px solid #1a5a9e;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00ff00, #90EE90);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 10px;
+}
+
+.loading-stats {
+    font-size: 12px;
+    color: #ccc;
+    margin-top: 5px;
+}
+
+/* Animationen */
+.loading-animation {
+    display: inline-block;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design für kleinere Bildschirme */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .globe-container {
+        flex: 2;
+        min-height: 60vh;
+    }
+    
+    .info-panel {
+        flex: 1;
+        min-width: auto;
+        max-height: 40vh;
+        padding: 10px;
+    }
+    
+    .city-item {
+        width: 100%;
+        margin: 2px 0;
+        font-size: 11px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10px;
+    }
+}
+
+/* Zusätzliche Button-Styles */
+.refresh-button {
+    margin-top: 5px;
+    padding: 3px 8px;
+    background: #1a5a9e;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: background-color 0.2s;
+}
+
+.refresh-button:hover {
+    background: #2a6aae;
+}
+
+.modal-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.2s;
+}
+
+.modal-button.primary {
+    background: #1a5a9e;
+    color: white;
+}
+
+.modal-button.secondary {
+    background: #666;
+    color: white;
+}
+
+.modal-button:hover {
+    opacity: 0.9;
+}
+
+/* Status-Badges */
+.status-badge {
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.status-badge.live {
+    background: #90EE90;
+    color: black;
+}
+
+.status-badge.offline {
+    background: #FFA500;
+    color: black;
+}
+
+.status-badge.error {
+    background: #FF6B6B;
+    color: white;
+}
+
+/* Wetter-Details Grid */
+.weather-details {
+    background: #0f3460;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.weather-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.weather-temperature {
+    background: linear-gradient(45deg, #1a5a9e, #0f3460);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.weather-temperature .temp {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.weather-temperature .description {
+    font-size: 18px;
+    color: #ccc;
+}
+
+/* Media-Liste */
+.media-section {
+    background: #16213e;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.media-section ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* Zeit-Header */
+.time-header {
+    padding: 10px;
+    background: #0f3460;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 12px;
+    color: #90EE90;
+}
+
+/* Debugging-Styles (können bei Bedarf aktiviert werden) */
+.debug {
+    border: 1px solid red !important;
+}
+
+.debug-info {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 11px;
+    z-index: 2000;
+}

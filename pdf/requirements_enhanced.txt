@@ -1,0 +1,23 @@
+# PDF2Notebook Enhanced - Requirements
+# Basis PDF-Verarbeitung
+PyPDF2>=3.0.0
+pdfplumber>=0.9.0
+
+# HTTP-Anfragen für LLM-APIs
+requests>=2.31.0
+
+# JSON-Verarbeitung (Standard in Python)
+# json (built-in)
+
+# Dateisystem-Operationen
+pathlib>=1.0.0  # oder pathlib2 für ältere Python-Versionen
+
+# Optionale LLM-Integration
+# Für OpenAI
+openai>=1.0.0
+
+# Für Anthropic Claude
+anthropic>=0.7.0
+
+# Allgemeine Utilities
+python-dateutil>=2.8.0

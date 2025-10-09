@@ -1,0 +1,158 @@
+city,country,lat,lon,continent
+Berlin,Deutschland,52.5200,13.4050,Europa
+Paris,Frankreich,48.8566,2.3522,Europa
+London,Großbritannien,51.5074,-0.1278,Europa
+Rom,Italien,41.9028,12.4964,Europa
+Madrid,Spanien,40.4168,-3.7038,Europa
+Wien,Österreich,48.2082,16.3738,Europa
+Bern,Schweiz,46.9480,7.4474,Europa
+Warschau,Polen,52.2297,21.0122,Europa
+Prag,Tschechien,50.0755,14.4378,Europa
+Budapest,Ungarn,47.4979,19.0402,Europa
+Amsterdam,Niederlande,52.3676,4.9041,Europa
+Stockholm,Schweden,59.3293,18.0686,Europa
+Kopenhagen,Dänemark,55.6761,12.5683,Europa
+Oslo,Norwegen,59.9139,10.7522,Europa
+Helsinki,Finnland,60.1699,24.9384,Europa
+Reykjavik,Island,64.1466,-21.9426,Europa
+Dublin,Irland,53.3498,-6.2603,Europa
+Lissabon,Portugal,38.7223,-9.1393,Europa
+Athen,Griechenland,37.9755,23.7348,Europa
+Bukarest,Rumänien,44.4268,26.1025,Europa
+Sofia,Bulgarien,42.6977,23.3219,Europa
+Zagreb,Kroatien,45.8150,15.9819,Europa
+Belgrad,Serbien,44.7866,20.4489,Europa
+Ljubljana,Slowenien,46.0569,14.5058,Europa
+Bratislava,Slowakei,48.1486,17.1077,Europa
+Vilnius,Litauen,54.6872,25.2797,Europa
+Riga,Lettland,56.9496,24.1052,Europa
+Tallinn,Estland,59.4370,24.7536,Europa
+Minsk,Belarus,53.9006,27.5590,Europa
+Kiew,Ukraine,50.4501,30.5234,Europa
+Moskau,Russland,55.7558,37.6176,Europa
+Tokio,Japan,35.6762,139.6503,Asien
+Peking,China,39.9042,116.4074,Asien
+Seoul,Südkorea,37.5665,126.9780,Asien
+Neu-Delhi,Indien,28.6139,77.2090,Asien
+Bangkok,Thailand,13.7563,100.5018,Asien
+Hanoi,Vietnam,21.0285,105.8542,Asien
+Manila,Philippinen,14.5995,120.9842,Asien
+Jakarta,Indonesien,-6.2088,106.8456,Asien
+Kuala Lumpur,Malaysia,3.1390,101.6869,Asien
+Singapur,Singapur,1.3521,103.8198,Asien
+Islamabad,Pakistan,33.6844,73.0479,Asien
+Kabul,Afghanistan,34.5553,69.2075,Asien
+Teheran,Iran,35.6892,51.3890,Asien
+Bagdad,Irak,33.3128,44.3615,Asien
+Ankara,Türkei,39.9334,32.8597,Asien
+Riad,Saudi-Arabien,24.7136,46.6753,Asien
+Kuwait-Stadt,Kuwait,29.3759,47.9774,Asien
+Doha,Katar,25.2760,51.5200,Asien
+Abu Dhabi,VAE,24.2992,54.6972,Asien
+Muskat,Oman,23.5880,58.3829,Asien
+Sanaa,Jemen,15.3549,44.2066,Asien
+Damaskus,Syrien,33.5138,36.2765,Asien
+Beirut,Libanon,33.8938,35.5018,Asien
+Amman,Jordanien,31.9454,35.9284,Asien
+Jerusalem,Israel,31.7683,35.2137,Asien
+Dhaka,Bangladesch,23.8103,90.4125,Asien
+Colombo,Sri Lanka,6.9271,79.8612,Asien
+Kathmandu,Nepal,27.7172,85.3240,Asien
+Thimphu,Bhutan,27.4728,89.6390,Asien
+Male,Malediven,4.1755,73.5093,Asien
+Ulaanbaatar,Mongolei,47.8864,106.9057,Asien
+Pjöngjang,Nordkorea,39.0392,125.7625,Asien
+Vientiane,Laos,17.9757,102.6331,Asien
+Phnom Penh,Kambodscha,11.5449,104.8922,Asien
+Bandar Seri Begawan,Brunei,4.9031,114.9398,Asien
+Dili,Osttimor,-8.5569,125.5603,Asien
+Kairo,Ägypten,30.0444,31.2357,Afrika
+Lagos,Nigeria,6.5244,3.3792,Afrika
+Kapstadt,Südafrika,-33.9249,18.4241,Afrika
+Nairobi,Kenia,-1.2921,36.8219,Afrika
+Addis Abeba,Äthiopien,9.1450,40.4897,Afrika
+Rabat,Marokko,34.0209,-6.8417,Afrika
+Tunis,Tunesien,36.8065,10.1815,Afrika
+Algier,Algerien,36.7538,3.0588,Afrika
+Tripolis,Libyen,32.8872,13.1913,Afrika
+Accra,Ghana,5.6037,-0.1870,Afrika
+Kinshasa,DR Kongo,-4.4419,15.2663,Afrika
+Luanda,Angola,-8.8390,13.2894,Afrika
+Maputo,Mosambik,-25.9692,32.5732,Afrika
+Harare,Simbabwe,-17.8216,31.0492,Afrika
+Gaborone,Botswana,-24.6282,25.9231,Afrika
+Windhoek,Namibia,-22.5609,17.0658,Afrika
+Maseru,Lesotho,-29.3151,27.4869,Afrika
+Mbabane,Eswatini,-26.3054,31.1367,Afrika
+Antananarivo,Madagaskar,-18.8792,47.5079,Afrika
+Port Louis,Mauritius,-20.1609,57.5012,Afrika
+Victoria,Seychellen,-4.6196,55.4513,Afrika
+Moroni,Komoren,-11.7022,43.2551,Afrika
+Yamoussoukro,Elfenbeinküste,6.8276,-5.2893,Afrika
+Ouagadougou,Burkina Faso,12.3714,-1.5197,Afrika
+Bamako,Mali,12.6392,-8.0029,Afrika
+Niamey,Niger,13.5116,2.1254,Afrika
+N'Djamena,Tschad,12.1348,15.0557,Afrika
+Bangui,Zentralafrikanische Republik,4.3947,18.5582,Afrika
+Libreville,Gabun,0.4162,9.4673,Afrika
+Malabo,Äquatorialguinea,3.7504,8.7371,Afrika
+São Tomé,São Tomé und Príncipe,0.1864,6.6131,Afrika
+Praia,Kap Verde,14.9177,-23.5092,Afrika
+Bissau,Guinea-Bissau,11.8817,-15.6178,Afrika
+Conakry,Guinea,9.6412,-13.5784,Afrika
+Freetown,Sierra Leone,8.4657,-13.2317,Afrika
+Monrovia,Liberia,6.2907,-10.7605,Afrika
+Abuja,Nigeria,9.0765,7.3986,Afrika
+Lomé,Togo,6.1228,1.2255,Afrika
+Porto-Novo,Benin,6.4969,2.6283,Afrika
+Kampala,Uganda,0.3476,32.5825,Afrika
+Kigali,Ruanda,-1.9403,30.0644,Afrika
+Bujumbura,Burundi,-3.3614,29.3599,Afrika
+Dodoma,Tansania,-6.1630,35.7516,Afrika
+Lusaka,Sambia,-15.3875,28.3228,Afrika
+Lilongwe,Malawi,-13.9626,33.7741,Afrika
+Dschibuti,Dschibuti,11.8251,42.5903,Afrika
+Asmara,Eritrea,15.3229,38.9251,Afrika
+Mogadischu,Somalia,2.0469,45.3182,Afrika
+Washington D.C.,USA,38.9072,-77.0369,Nordamerika
+Ottawa,Kanada,45.4215,-75.6972,Nordamerika
+Mexiko-Stadt,Mexiko,19.4326,-99.1332,Nordamerika
+Guatemala-Stadt,Guatemala,14.6349,-90.5069,Nordamerika
+Havanna,Kuba,23.1136,-82.3666,Nordamerika
+Belize City,Belize,17.5045,-88.1962,Nordamerika
+San Salvador,El Salvador,13.6929,-89.2182,Nordamerika
+Tegucigalpa,Honduras,14.0723,-87.1921,Nordamerika
+Managua,Nicaragua,12.1150,-86.2362,Nordamerika
+San José,Costa Rica,9.9281,-84.0907,Nordamerika
+Panama-Stadt,Panama,8.5380,-80.7821,Nordamerika
+Kingston,Jamaika,17.9970,-76.7936,Nordamerika
+Port-au-Prince,Haiti,18.5944,-72.3074,Nordamerika
+Santo Domingo,Dominikanische Republik,18.4861,-69.9312,Nordamerika
+San Juan,Puerto Rico,18.4655,-66.1057,Nordamerika
+Brasília,Brasilien,-15.8267,-47.9218,Südamerika
+Buenos Aires,Argentinien,-34.6118,-58.3960,Südamerika
+Santiago,Chile,-33.4489,-70.6693,Südamerika
+Lima,Peru,-12.0464,-77.0428,Südamerika
+Bogotá,Kolumbien,4.7110,-74.0721,Südamerika
+Caracas,Venezuela,10.4806,-66.9036,Südamerika
+Quito,Ecuador,-0.1807,-78.4678,Südamerika
+La Paz,Bolivien,-16.5000,-68.1193,Südamerika
+Asunción,Paraguay,-25.2637,-57.5759,Südamerika
+Montevideo,Uruguay,-34.9011,-56.1645,Südamerika
+Georgetown,Guyana,6.8013,-58.1551,Südamerika
+Paramaribo,Suriname,5.8520,-55.2038,Südamerika
+Cayenne,Französisch-Guayana,4.9337,-52.3281,Südamerika
+Canberra,Australien,-35.2809,149.1300,Ozeanien
+Wellington,Neuseeland,-41.2865,174.7762,Ozeanien
+Suva,Fidschi,-18.1248,178.4501,Ozeanien
+Port Moresby,Papua-Neuguinea,-9.4438,147.1803,Ozeanien
+Nuku'alofa,Tonga,-21.1789,-175.1982,Ozeanien
+Apia,Samoa,-13.8506,-171.7513,Ozeanien
+Port Vila,Vanuatu,-17.7334,168.3273,Ozeanien
+Honiara,Salomonen,-9.4280,159.9498,Ozeanien
+Tarawa,Kiribati,1.3278,172.9797,Ozeanien
+Majuro,Marshallinseln,7.1315,171.1845,Ozeanien
+Palikir,Mikronesien,6.9147,158.1611,Ozeanien
+Ngerulmud,Palau,7.5006,134.6242,Ozeanien
+Funafuti,Tuvalu,-8.5243,179.1942,Ozeanien
+Yaren,Nauru,-0.5477,166.9209,Ozeanien

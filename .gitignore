@@ -352,10 +352,14 @@ auto_*
 # PROJECT CONTENT FOLDERS (show folders but ignore content)
 # =============================================================================
 
-# PDF Dokumente - Ordner bleibt sichtbar, Inhalt wird ignoriert
-pdf/*
+# PDF Dokumente - nur PDF-Dateien ignorieren, Python-Dateien erlauben
+pdf/*.pdf
 !pdf/.gitkeep
+!pdf/*.py
 
 # Notebooks - Ordner bleibt sichtbar, Inhalt wird ignoriert  
 notebook/*
 !notebook/.gitkeep
+
+data/
+linkedin_api/
