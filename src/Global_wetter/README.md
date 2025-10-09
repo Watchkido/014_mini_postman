@@ -1,5 +1,7 @@
 # Weltwetter Projekt
 
+Right data. Smart use. Better weather. Bang!
+
 ## Projektbeschreibung
 Das Weltwetter-Projekt ist eine interaktive 3D-Visualisierung der Wetterdaten von Städten weltweit. Es kombiniert moderne Webtechnologien mit Python-Backend, um eine immersive Benutzererfahrung zu bieten.
 
@@ -112,4 +114,4 @@ Dieses Projekt steht unter der MIT-Lizenz.
 
 ---
 
-**Entwickelt mit ❤️ für die Wettervisualisierung**
+**Entwickelt mit ❤️ von Frank: Right data. Smart use. Better weather. Bang!**
