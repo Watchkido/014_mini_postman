@@ -11,6 +11,7 @@ CONFIG = {
 
 # URL-Konfiguration für Mini Postman
 URL_PRESETS = {
+    'Scrapping test': 'https://www.scrapethissite.com/pages/forms/',
     'Cat Facts API': 'https://catfact.ninja/fact',
     'DataAccess - Number Conversion': 'https://www.dataaccess.com/webservicesserver/NumberConversion.wso',
     'DataAccess - Number Conversion (POST)': 'https://www.dataaccess.com/webservicesserver/NumberConversion.wso',
@@ -47,6 +48,5 @@ URL_PRESETS = {
     'Yelp API - Business Search (Phone)': 'https://api.yelp.com/v3/businesses/search/phone',
     'Yelp API - Business Service Offerings': 'https://api.yelp.com/v3/businesses/{business_id_or_alias}/service_offerings',
     'Open Meteo API (Forecast)': 'https://api.open-meteo.com/v1/forecast?latitude=49.34&longitude=8.15&daily=uv_index_max',
-    'Nominatim API - Reverse Geocoding': 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true
-'
+    'Nominatim API - Reverse Geocoding': 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true'
 }

@@ -3,6 +3,14 @@ import streamlit as st
 import requests
 import json
 from config import URL_PRESETS
+import logging
+import warnings
+
+# Streamlit-Warnungen unterdrücken
+warnings.filterwarnings("ignore")
+logging.getLogger('streamlit.runtime.scriptrunner.script_run_context').setLevel(logging.ERROR)
+logging.getLogger('streamlit.runtime.scriptrunner_utils.script_run_context').setLevel(logging.ERROR)
+logging.getLogger('streamlit').setLevel(logging.ERROR)
 
 # Streamlit-Seitenkonfiguration für Wide Mode
 st.set_page_config(
